@@ -1,0 +1,259 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 350px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(135deg, #E30611 0%, #FF1744 50%, #C62828 100%);
+  color: #333;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+}
+
+.header {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #E30611;
+}
+
+.content {
+  flex: 1;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+  background: white;
+  color: #E30611;
+  margin-bottom: 12px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary.active {
+  background: #6B7280;
+  color: white;
+}
+
+.btn-secondary.active:hover {
+  background: #4B5563;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.icon {
+  font-size: 20px;
+}
+
+.status {
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.status p {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error {
+  width: 100%;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  color: #e53e3e;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.error p {
+  font-size: 13px;
+  flex: 1;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.footer {
+  padding: 15px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.version {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Navigation Controls */
+.navigation-controls {
+  width: 100%;
+}
+
+.navigation-header {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.navigation-header h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #E30611;
+  margin-bottom: 8px;
+}
+
+.issue-counter {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.issue-counter span {
+  color: #E30611;
+}
+
+.navigation-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.btn-nav {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: white;
+  color: #E30611;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-nav:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-nav:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-link {
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  background: transparent;
+  color: white;
+  text-decoration: none;
+  margin-top: 8px;
+}
+
+.btn-link:hover {
+  opacity: 0.8;
+}
+
+.btn-clear {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  transition: all 0.3s ease;
+  margin-bottom: 8px;
+}
+
+.btn-clear:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.btn-clear:active {
+  transform: scale(0.95);
+}

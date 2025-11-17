@@ -1,0 +1,901 @@
+[
+  {
+    "id": "aria-hidden-focus",
+    "impact": "serious",
+    "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag412",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.4.1.2"
+    ],
+    "description": "Тестовое описание на русском: Ensures aria-hidden elements are not focusable nor contain focusable elements",
+    "help": "ARIA hidden element must not be focusable or contain focusable elements",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/4.8/aria-hidden-focus?application=axeAPI",
+    "nodes": [
+      {
+        "any": [],
+        "all": [
+          {
+            "id": "focusable-disabled",
+            "data": null,
+            "relatedNodes": [
+              {
+                "html": "<button class=\"btn\" aria-hidden=\"true\"></button>",
+                "target": [
+                  ".btn[aria-hidden=\"true\"]"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Focusable content should be disabled or be removed from the DOM"
+          }
+        ],
+        "none": [],
+        "impact": "serious",
+        "html": "<button class=\"btn\" aria-hidden=\"true\"></button>",
+        "target": [
+          ".btn[aria-hidden=\"true\"]"
+        ],
+        "failureSummary": "Fix all of the following:\n  Focusable content should be disabled or be removed from the DOM"
+      },
+      {
+        "any": [],
+        "all": [
+          {
+            "id": "focusable-not-tabbable",
+            "data": null,
+            "relatedNodes": [
+              {
+                "html": "<a href=\"/help\" aria-hidden=\"true\"></a>",
+                "target": [
+                  "a[href$=\"help\"]"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM"
+          }
+        ],
+        "none": [],
+        "impact": "serious",
+        "html": "<a href=\"/help\" aria-hidden=\"true\"></a>",
+        "target": [
+          "a[href$=\"help\"]"
+        ],
+        "failureSummary": "Fix all of the following:\n  Focusable content should have tabindex=\"-1\" or be removed from the DOM"
+      }
+    ]
+  },
+  {
+    "id": "button-name",
+    "impact": "critical",
+    "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT"
+    ],
+    "description": "Ensures buttons have discernible text",
+    "help": "Buttons must have discernible text",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/4.8/button-name?application=axeAPI",
+    "nodes": [
+      {
+        "any": [
+          {
+            "id": "button-has-visible-text",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element does not have inner text that is visible to screen readers"
+          },
+          {
+            "id": "aria-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "aria-label attribute does not exist or is empty"
+          },
+          {
+            "id": "aria-labelledby",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+          },
+          {
+            "id": "non-empty-title",
+            "data": {
+              "messageKey": "noAttr"
+            },
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element has no title attribute"
+          },
+          {
+            "id": "presentational-role",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "critical",
+        "html": "<button type=\"submit\" class=\"btn-full\"></button>",
+        "target": [
+          ".btn-full"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+      }
+    ]
+  },
+  {
+    "id": "color-contrast",
+    "impact": "serious",
+    "tags": [
+      "cat.color",
+      "wcag2aa",
+      "wcag143",
+      "TTv5",
+      "TT13.c",
+      "EN-301-549",
+      "EN-9.1.4.3",
+      "ACT"
+    ],
+    "description": "Ensures the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    "help": "Elements must meet minimum color contrast ratio thresholds",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/4.8/color-contrast?application=axeAPI",
+    "nodes": [
+      {
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "fgColor": "#d1e3fa",
+              "bgColor": "#1b73e8",
+              "contrastRatio": 3.44,
+              "fontSize": "9.0pt (12px)",
+              "fontWeight": "normal",
+              "messageKey": null,
+              "expectedContrastRatio": "4.5:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<header class=\"header\">",
+                "target": [
+                  "header"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element has insufficient color contrast of 3.44 (foreground color: #d1e3fa, background color: #1b73e8, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "serious",
+        "html": "<div class=\"bank-sub\">Надёжный банк с 1890</div>",
+        "target": [
+          ".bank-sub"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.44 (foreground color: #d1e3fa, background color: #1b73e8, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "fgColor": "#e8f1fd",
+              "bgColor": "#1b73e8",
+              "contrastRatio": 3.95,
+              "fontSize": "12.0pt (16px)",
+              "fontWeight": "normal",
+              "messageKey": null,
+              "expectedContrastRatio": "4.5:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<header class=\"header\">",
+                "target": [
+                  "header"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element has insufficient color contrast of 3.95 (foreground color: #e8f1fd, background color: #1b73e8, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "serious",
+        "html": "<a href=\"#products\">Продукты</a>",
+        "target": [
+          "a[href$=\"#products\"]"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.95 (foreground color: #e8f1fd, background color: #1b73e8, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "fgColor": "#e8f1fd",
+              "bgColor": "#1b73e8",
+              "contrastRatio": 3.95,
+              "fontSize": "12.0pt (16px)",
+              "fontWeight": "normal",
+              "messageKey": null,
+              "expectedContrastRatio": "4.5:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<header class=\"header\">",
+                "target": [
+                  "header"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element has insufficient color contrast of 3.95 (foreground color: #e8f1fd, background color: #1b73e8, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "serious",
+        "html": "<a href=\"#about\">О банке</a>",
+        "target": [
+          "a[href$=\"#about\"]"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.95 (foreground color: #e8f1fd, background color: #1b73e8, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "fgColor": "#e8f1fd",
+              "bgColor": "#1b73e8",
+              "contrastRatio": 3.95,
+              "fontSize": "12.0pt (16px)",
+              "fontWeight": "normal",
+              "messageKey": null,
+              "expectedContrastRatio": "4.5:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<header class=\"header\">",
+                "target": [
+                  "header"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element has insufficient color contrast of 3.95 (foreground color: #e8f1fd, background color: #1b73e8, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "serious",
+        "html": "<a href=\"#contacts\">Контакты</a>",
+        "target": [
+          "nav > a[href$=\"#contacts\"]"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.95 (foreground color: #e8f1fd, background color: #1b73e8, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "fgColor": "#97a0ad",
+              "bgColor": "#ffffff",
+              "contrastRatio": 2.64,
+              "fontSize": "12.0pt (16px)",
+              "fontWeight": "normal",
+              "messageKey": null,
+              "expectedContrastRatio": "4.5:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<section class=\"hero\" aria-label=\"Главный блок\">",
+                "target": [
+                  ".hero"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element has insufficient color contrast of 2.64 (foreground color: #97a0ad, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "serious",
+        "html": "<p class=\"muted\">Удобное управление счетами, переводы и инвестиции — всё в одном приложении.</p>",
+        "target": [
+          "div > .muted"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.64 (foreground color: #97a0ad, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "fgColor": "#97a0ad",
+              "bgColor": "#ffffff",
+              "contrastRatio": 2.64,
+              "fontSize": "12.0pt (16px)",
+              "fontWeight": "normal",
+              "messageKey": null,
+              "expectedContrastRatio": "4.5:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<article class=\"feature\">\n            <img src=\"./lock.png\" alt=\"\"> <!-- НАРУШЕНИЕ, нет alt, не скрыт из виду aria -->\n            <h3>Безопасность</h3>\n            <p class=\"muted\">Ваши деньги защищены многоуровневой концепцией.</p>\n          </article>",
+                "target": [
+                  ".feature:nth-child(1)"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element has insufficient color contrast of 2.64 (foreground color: #97a0ad, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "serious",
+        "html": "<p class=\"muted\">Ваши деньги защищены многоуровневой концепцией.</p>",
+        "target": [
+          ".feature:nth-child(1) > .muted"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.64 (foreground color: #97a0ad, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "fgColor": "#97a0ad",
+              "bgColor": "#ffffff",
+              "contrastRatio": 2.64,
+              "fontSize": "12.0pt (16px)",
+              "fontWeight": "normal",
+              "messageKey": null,
+              "expectedContrastRatio": "4.5:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<article class=\"feature\">\n            <img src=\"./support.png\" alt=\"иконка\">\n            <h3>Поддержка 24/7</h3>\n            <p class=\"muted\">Мы всегда на связи.</p>\n          </article>",
+                "target": [
+                  ".feature:nth-child(2)"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element has insufficient color contrast of 2.64 (foreground color: #97a0ad, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "serious",
+        "html": "<p class=\"muted\">Мы всегда на связи.</p>",
+        "target": [
+          ".feature:nth-child(2) > .muted"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.64 (foreground color: #97a0ad, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "fgColor": "#97a0ad",
+              "bgColor": "#ffffff",
+              "contrastRatio": 2.64,
+              "fontSize": "12.0pt (16px)",
+              "fontWeight": "normal",
+              "messageKey": null,
+              "expectedContrastRatio": "4.5:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<article class=\"feature\">\n            <img src=\"./lightning.png\" alt=\"\"> <!-- НАРУШЕНИЕ, нет alt, не скрыт из виду aria -->\n            <h3>Быстрые переводы</h3>\n            <p class=\"muted\">Переводы внутри банка — мгновенно.</p>\n          </article>",
+                "target": [
+                  ".feature:nth-child(3)"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element has insufficient color contrast of 2.64 (foreground color: #97a0ad, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "serious",
+        "html": "<p class=\"muted\">Переводы внутри банка — мгновенно.</p>",
+        "target": [
+          ".feature:nth-child(3) > .muted"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.64 (foreground color: #97a0ad, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "fgColor": "#97a0ad",
+              "bgColor": "#f7f9fc",
+              "contrastRatio": 2.5,
+              "fontSize": "12.0pt (16px)",
+              "fontWeight": "normal",
+              "messageKey": null,
+              "expectedContrastRatio": "4.5:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<body>",
+                "target": [
+                  "body"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element has insufficient color contrast of 2.5 (foreground color: #97a0ad, background color: #f7f9fc, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "serious",
+        "html": "<p class=\"muted\">Узнайте подробности <a href=\"#\"></a></p>",
+        "target": [
+          ".news > article > .muted"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.5 (foreground color: #97a0ad, background color: #f7f9fc, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      },
+      {
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "fgColor": "#97a0ad",
+              "bgColor": "#ffffff",
+              "contrastRatio": 2.64,
+              "fontSize": "12.0pt (16px)",
+              "fontWeight": "normal",
+              "messageKey": null,
+              "expectedContrastRatio": "4.5:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<footer>\n    <p>© 1890–2025 Банк Пример</p>\n    <a href=\"/help\" aria-hidden=\"true\"></a> <!-- НАРУШЕНИЕ -->\n  </footer>",
+                "target": [
+                  "footer"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element has insufficient color contrast of 2.64 (foreground color: #97a0ad, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "serious",
+        "html": "<p>© 1890–2025 Банк Пример</p>",
+        "target": [
+          "footer > p"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.64 (foreground color: #97a0ad, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+      }
+    ]
+  },
+  {
+    "id": "frame-title",
+    "impact": "serious",
+    "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.i",
+      "TTv5",
+      "TT12.d",
+      "EN-301-549",
+      "EN-9.4.1.2"
+    ],
+    "description": "Ensures <iframe> and <frame> elements have an accessible name",
+    "help": "Frames must have an accessible name",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/4.8/frame-title?application=axeAPI",
+    "nodes": [
+      {
+        "any": [
+          {
+            "id": "non-empty-title",
+            "data": {
+              "messageKey": "noAttr"
+            },
+            "relatedNodes": [],
+            "impact": "serious",
+            "message": "Element has no title attribute"
+          },
+          {
+            "id": "aria-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "serious",
+            "message": "aria-label attribute does not exist or is empty"
+          },
+          {
+            "id": "aria-labelledby",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "serious",
+            "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+          },
+          {
+            "id": "presentational-role",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "serious",
+            "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "serious",
+        "html": "<iframe src=\"https://www.example.com/financial-widget\" width=\"100%\" height=\"200\"></iframe>",
+        "target": [
+          "iframe[width=\"100%\"]"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element has no title attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+      }
+    ]
+  },
+  {
+    "id": "heading-order",
+    "impact": "moderate",
+    "tags": [
+      "cat.semantics",
+      "best-practice"
+    ],
+    "description": "Ensures the order of headings is semantically correct",
+    "help": "Heading levels should only increase by one",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/4.8/heading-order?application=axeAPI",
+    "nodes": [
+      {
+        "any": [
+          {
+            "id": "heading-order",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "moderate",
+            "message": "Heading order invalid"
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "moderate",
+        "html": "<h3>Откройте счёт за 5 минут</h3>",
+        "target": [
+          "div > h3"
+        ],
+        "failureSummary": "Fix any of the following:\n  Heading order invalid"
+      }
+    ]
+  },
+  {
+    "id": "html-has-lang",
+    "impact": "serious",
+    "tags": [
+      "cat.language",
+      "wcag2a",
+      "wcag311",
+      "TTv5",
+      "TT11.a",
+      "EN-301-549",
+      "EN-9.3.1.1",
+      "ACT"
+    ],
+    "description": "Ensures every HTML document has a lang attribute",
+    "help": "<html> element must have a lang attribute",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/4.8/html-has-lang?application=axeAPI",
+    "nodes": [
+      {
+        "any": [
+          {
+            "id": "has-lang",
+            "data": {
+              "messageKey": "noLang"
+            },
+            "relatedNodes": [],
+            "impact": "serious",
+            "message": "The <html> element does not have a lang attribute"
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "serious",
+        "html": "<html>",
+        "target": [
+          "html"
+        ],
+        "failureSummary": "Fix any of the following:\n  The <html> element does not have a lang attribute"
+      }
+    ]
+  },
+  {
+    "id": "landmark-complementary-is-top-level",
+    "impact": "moderate",
+    "tags": [
+      "cat.semantics",
+      "best-practice"
+    ],
+    "description": "Ensures the complementary landmark or aside is at top level",
+    "help": "Aside should not be contained in another landmark",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/4.8/landmark-complementary-is-top-level?application=axeAPI",
+    "nodes": [
+      {
+        "any": [
+          {
+            "id": "landmark-is-top-level",
+            "data": {
+              "role": "complementary"
+            },
+            "relatedNodes": [],
+            "impact": "moderate",
+            "message": "The complementary landmark is contained in another landmark."
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "moderate",
+        "html": "<aside class=\"form-card\">",
+        "target": [
+          "aside"
+        ],
+        "failureSummary": "Fix any of the following:\n  The complementary landmark is contained in another landmark."
+      }
+    ]
+  },
+  {
+    "id": "link-name",
+    "impact": "serious",
+    "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag244",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.2.4.4",
+      "EN-9.4.1.2",
+      "ACT"
+    ],
+    "description": "Ensures links have discernible text",
+    "help": "Links must have discernible text",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/4.8/link-name?application=axeAPI",
+    "nodes": [
+      {
+        "any": [
+          {
+            "id": "has-visible-text",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "serious",
+            "message": "Element does not have text that is visible to screen readers"
+          },
+          {
+            "id": "aria-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "serious",
+            "message": "aria-label attribute does not exist or is empty"
+          },
+          {
+            "id": "aria-labelledby",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "serious",
+            "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+          },
+          {
+            "id": "non-empty-title",
+            "data": {
+              "messageKey": "noAttr"
+            },
+            "relatedNodes": [],
+            "impact": "serious",
+            "message": "Element has no title attribute"
+          }
+        ],
+        "all": [],
+        "none": [
+          {
+            "id": "focusable-no-name",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "serious",
+            "message": "Element is in tab order and does not have accessible text"
+          }
+        ],
+        "impact": "serious",
+        "html": "<a href=\"#\" class=\"empty-link\"></a>",
+        "target": [
+          ".empty-link"
+        ],
+        "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+      },
+      {
+        "any": [
+          {
+            "id": "has-visible-text",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "serious",
+            "message": "Element does not have text that is visible to screen readers"
+          },
+          {
+            "id": "aria-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "serious",
+            "message": "aria-label attribute does not exist or is empty"
+          },
+          {
+            "id": "aria-labelledby",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "serious",
+            "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+          },
+          {
+            "id": "non-empty-title",
+            "data": {
+              "messageKey": "noAttr"
+            },
+            "relatedNodes": [],
+            "impact": "serious",
+            "message": "Element has no title attribute"
+          }
+        ],
+        "all": [],
+        "none": [
+          {
+            "id": "focusable-no-name",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "serious",
+            "message": "Element is in tab order and does not have accessible text"
+          }
+        ],
+        "impact": "serious",
+        "html": "<a href=\"#\"></a>",
+        "target": [
+          ".muted > a[href=\"#\"]"
+        ],
+        "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+      }
+    ]
+  },
+  {
+    "id": "select-name",
+    "impact": "critical",
+    "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT"
+    ],
+    "description": "Ensures select element has an accessible name",
+    "help": "Select element must have an accessible name",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/4.8/select-name?application=axeAPI",
+    "nodes": [
+      {
+        "any": [
+          {
+            "id": "implicit-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Form element does not have an implicit (wrapped) <label>"
+          },
+          {
+            "id": "explicit-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Form element does not have an explicit <label>"
+          },
+          {
+            "id": "aria-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "aria-label attribute does not exist or is empty"
+          },
+          {
+            "id": "aria-labelledby",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+          },
+          {
+            "id": "non-empty-title",
+            "data": {
+              "messageKey": "noAttr"
+            },
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element has no title attribute"
+          },
+          {
+            "id": "presentational-role",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "critical",
+        "html": "<select name=\"account\">\n              <option>Выберите счёт</option>\n              <option>Текущий</option>\n            </select>",
+        "target": [
+          "select"
+        ],
+        "failureSummary": "Fix any of the following:\n  Form element does not have an implicit (wrapped) <label>\n  Form element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+      }
+    ]
+  },
+  {
+    "id": "tabindex",
+    "impact": "serious",
+    "tags": [
+      "cat.keyboard",
+      "best-practice"
+    ],
+    "description": "Ensures tabindex attribute values are not greater than 0",
+    "help": "Elements should not have tabindex greater than zero",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/4.8/tabindex?application=axeAPI",
+    "nodes": [
+      {
+        "any": [
+          {
+            "id": "tabindex",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "serious",
+            "message": "Element has a tabindex greater than 0"
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "serious",
+        "html": "<button class=\"btn\" tabindex=\"3\">Перевести</button>",
+        "target": [
+          ".btn:nth-child(3)"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element has a tabindex greater than 0"
+      }
+    ]
+  }
+]

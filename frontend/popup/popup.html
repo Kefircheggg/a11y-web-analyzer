@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Анализатор доступности</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header" role="banner">
+      <h1>Анализ доступности сайта</h1>
+    </header>
+    
+    <main class="content" role="main">
+      <button id="analyzeBtn" class="btn btn-primary" aria-label="Анализировать страницу на доступность">
+        <span class="icon" aria-hidden="true">🔍</span>
+        Анализировать страницу
+      </button>
+      
+      <nav id="navigationControls" class="navigation-controls hidden" aria-label="Навигация по ошибкам">
+        <div class="navigation-header">
+          <h2 id="issuesHeading">Найдено проблем</h2>
+          <div class="issue-counter" role="status" aria-live="polite" aria-atomic="true">
+            <span id="currentIssueNum" aria-label="Текущая проблема">0</span> / <span id="totalIssuesNum" aria-label="Всего проблем">0</span>
+          </div>
+        </div>
+        
+        <div class="navigation-buttons" role="group" aria-labelledby="issuesHeading">
+          <button id="prevIssueBtn" class="btn btn-nav" aria-label="Перейти к предыдущей ошибке">
+            <span class="icon" aria-hidden="true">←</span>
+            Предыдущая ошибка
+          </button>
+          <button id="nextIssueBtn" class="btn btn-nav" aria-label="Перейти к следующей ошибке">
+            Следующая ошибка
+            <span class="icon" aria-hidden="true">→</span>
+          </button>
+        </div>
+        
+        <button id="viewResultsBtn" class="btn btn-secondary" aria-label="Открыть полный отчёт о доступности">
+          <span aria-hidden="true">📊</span> Посмотреть полный отчёт
+        </button>
+      </nav>
+      
+        <button id="newReportBtn" class="btn btn-link" aria-label="Создать новый отчёт о доступности">
+          <span class="icon" aria-hidden="true">🔁</span>
+          Сделать новый отчет
+        </button>
+
+      <div id="status" class="status hidden" role="status" aria-live="polite">
+        <div class="loader" aria-hidden="true"></div>
+        <p id="statusText">Анализируем...</p>
+      </div>
+      
+      <div id="error" class="error hidden" role="alert" aria-live="assertive">
+        <span class="icon" aria-hidden="true">⚠️</span>
+        <p id="errorText"></p>
+      </div>
+    </main>
+    
+    <footer class="footer" role="contentinfo">
+      <p class="version">v1.0.0</p>
+    </footer>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

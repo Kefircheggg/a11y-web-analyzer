@@ -1,0 +1,21 @@
+# Запустить unit тесты
+cd backend && go test ./... -v
+
+# Запустить сервер
+cd backend && ./bin/app
+
+# Проверить health
+curl http://localhost:8080/health
+
+# Создать задачу (полный пример в документации)
+cat testdata/axe_response_demo.json | jq '{url: "https://example.com", violations: .}' | \
+curl -X POST http://localhost:8080/api/v1/analyze -H "Content-Type: application/json" -d @-
+
+# Проверить статус
+curl http://localhost:8080/api/v1/jobs/{JOB_ID}
+
+# Получить JSON отчет
+curl http://localhost:8080/api/v1/jobs/{JOB_ID}/report
+
+# Скачать PDF
+curl -o report.pdf http://localhost:8080/api/v1/jobs/{JOB_ID}/report/pdf

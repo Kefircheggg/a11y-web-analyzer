@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Результаты анализа доступности</title>
+  <link rel="stylesheet" href="results.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header" role="banner">
+      <div class="header-content">
+        <h1>Анализ доступности сайта</h1>
+        <div class="header-actions">
+          <button id="backToPageBtn" class="btn btn-secondary" aria-label="Вернуться на страницу">
+            <span aria-hidden="true">←</span> Вернуться на страницу
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main" role="main">
+      <!-- Loading State -->
+      <div id="loadingState" class="loading-state" role="status" aria-live="polite">
+        <div class="loader" aria-hidden="true"></div>
+        <p>Загрузка результатов анализа...</p>
+      </div>
+
+      <!-- Error State -->
+      <div id="errorState" class="error-state hidden" role="alert" aria-live="assertive">
+        <span class="icon" aria-hidden="true">⚠️</span>
+        <h2>Ошибка загрузки результатов</h2>
+        <p id="errorMessage"></p>
+      </div>
+
+      <!-- Results Content -->
+      <div id="resultsContent" class="results-content hidden">
+        <!-- Summary Cards -->
+        <section class="summary-section" aria-label="Сводка результатов анализа">
+          <div class="summary-card" role="article">
+            <div class="summary-icon critical" aria-hidden="true">
+              <svg width="48" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_17_246)">
+                  <path d="M24.82 13.5L26 4L21.14 9.84M37.14 25.82L42 20H31.32M16 16L6 28H24L22 44L32 32M2 2L46 46" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                  <clipPath id="clip0_17_246">
+                    <rect width="48" height="48" fill="white"/>
+                  </clipPath>
+                </defs>
+              </svg>
+            </div>
+            <div class="summary-info">
+              <h3 id="criticalCount" aria-label="Количество критических проблем">0</h3>
+              <p>Критических</p>
+            </div>
+          </div>
+          <div class="summary-card" role="article">
+            <div class="summary-icon serious" aria-hidden="true">
+              <svg width="30" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M30 18L18 30M18 18L30 30M44 24C44 35.0457 35.0457 44 24 44C12.9543 44 4 35.0457 4 24C4 12.9543 12.9543 4 24 4C35.0457 4 44 12.9543 44 24Z" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="summary-info">
+              <h3 id="seriousCount" aria-label="Количество серьёзных проблем">0</h3>
+              <p>Серьёзные</p>
+            </div>
+          </div>
+          <div class="summary-card" role="article">
+            <div class="summary-icon moderate" aria-hidden="true">
+              <svg width="30" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 18V26M24 34H24.02M20.58 7.72004L3.64004 36C3.29078 36.6049 3.10598 37.2906 3.10402 37.9891C3.10206 38.6875 3.28302 39.3743 3.62889 39.9811C3.97477 40.5879 4.47349 41.0935 5.07546 41.4477C5.67742 41.802 6.36164 41.9924 7.06004 42H40.94C41.6384 41.9924 42.3227 41.802 42.9246 41.4477C43.5266 41.0935 44.0253 40.5879 44.3712 39.9811C44.7171 39.3743 44.898 38.6875 44.8961 37.9891C44.8941 37.2906 44.7093 36.6049 44.36 36L27.42 7.72004C27.0635 7.13226 26.5615 6.64628 25.9624 6.30901C25.3634 5.97174 24.6875 5.79456 24 5.79456C23.3126 5.79456 22.6367 5.97174 22.0377 6.30901C21.4386 6.64628 20.9366 7.13226 20.58 7.72004Z" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="summary-info">
+              <h3 id="moderateCount" aria-label="Количество средних проблем">0</h3>
+              <p>Средние</p>
+            </div>
+          </div>
+          <div class="summary-card" role="article">
+            <div class="summary-icon minor" aria-hidden="true">
+              <svg width="30" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 32V24M24 16H24.02M44 24C44 35.0457 35.0457 44 24 44C12.9543 44 4 35.0457 4 24C4 12.9543 12.9543 4 24 4C35.0457 4 44 12.9543 44 24Z" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="summary-info">
+              <h3 id="minorCount" aria-label="Количество незначительных проблем">0</h3>
+              <p>Незначительные</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Page Info -->
+        <section class="page-info" aria-labelledby="pageInfoHeading">
+          <h2 id="pageInfoHeading">Информация о странице</h2>
+          <p id="pageUrl" aria-label="URL проанализированной страницы"></p>
+          <p id="analysisTime" aria-label="Время анализа"></p>
+          <div class="info-tip" role="note" aria-label="Совет">
+            <span aria-hidden="true">💡</span> <strong>Совет:</strong> Нажмите на иконку расширения и используйте  кнопки, чтобы визуализировать проблемы на странице
+          </div>
+        </section>
+
+        <!-- AI Recommendations -->
+        <section id="recommendationsSection" class="recommendations-section" aria-labelledby="recommendationsHeading">
+          <h2 id="recommendationsHeading"><span aria-hidden="true">🤖</span> Рекомендации AI</h2>
+          <div id="recommendationsContainer" class="recommendations-container" role="region" aria-live="polite">
+            <div class="loader-small" aria-hidden="true"></div>
+            <p>Генерация рекомендаций...</p>
+          </div>
+        </section>
+
+        <!-- Violations List -->
+        <section class="violations-section" aria-labelledby="violationsHeading">
+          <h2 id="violationsHeading">Найденные проблемы</h2>
+          <div id="violationsList" class="violations-list" role="list"></div>
+        </section>
+
+        <!-- Download Report Section -->
+        <section class="download-section" aria-labelledby="downloadHeading">
+          <h2 id="downloadHeading">Экспорт отчета</h2>
+          <button id="downloadPdfBtn" class="btn btn-download" aria-label="Скачать отчет в формате PDF">
+            <span aria-hidden="true">
+              <svg width="30" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M42 30V38C42 39.0609 41.5786 40.0783 40.8284 40.8284C40.0783 41.5786 39.0609 42 38 42H10C8.93913 42 7.92172 41.5786 7.17157 40.8284C6.42143 40.0783 6 39.0609 6 38V30M14 20L24 30M24 30L34 20M24 30V6" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span> Скачать отчет PDF
+          </button>
+          <div id="downloadStatus" class="download-status hidden" role="status" aria-live="polite"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="results.js"></script>
+  <script src="../utils/translations.js"></script>
+</body>
+</html>

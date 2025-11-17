@@ -1,0 +1,56 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+README.md
+*.md
+
+# Build artifacts
+*.exe
+*.dll
+*.so
+*.dylib
+server
+main
+
+# Test files
+*_test.go
+testdata/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Node modules (если есть фронтенд)
+node_modules/
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Environment files (не включаем в образ)
+.env
+.env.*
+
+# Other
+groq_server.go
+image_analyzer.go
+gemini-api-go/
+files/
