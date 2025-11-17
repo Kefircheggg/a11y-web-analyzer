@@ -10,7 +10,7 @@
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square"></a>
 </p>
 
-> Chrome расширение для анализа доступности веб-приложений**.
+> Chrome расширение для анализа доступности веб-приложений.
 
 ## Возможности
 
@@ -259,5 +259,13 @@ cd frontend
 ## 📄 Лицензия
 
 Этот проект лицензирован под лицензией MIT - подробности см. в файле [LICENSE](LICENSE).
+
+## 👥 Команда
+
+- **Backend**: [Narotan](https://github.com/Narotan)
+- **Frontend**: [Dreamer0iQ](https://github.com/Dreamer0iQ)
+- **DevOps**: [Kefircheggg](https://github.com/Kefircheggg)
+- **UX/UI**: [MrSnickersRUS](https://github.com/MrSnickersRUS)
+
 
 Создано для улучшения доступности веб-приложений 🌐
